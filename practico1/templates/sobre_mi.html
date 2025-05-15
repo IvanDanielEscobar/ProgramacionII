@@ -1,0 +1,62 @@
+
+{% extends 'layout.html' %}
+{%block body_class%}pagina-sobremi{%endblock%}
+{% block tittle %}
+Ivan Escobar - Sobre Mi
+{% endblock %}
+
+{% block body %}
+<div class="contenedor-pagina-sobremi">
+    <h1>Sobre Mi</h1>
+    <div class="contenedor-sobremi">
+        <p>
+            ¡Hola! Soy Iván Escobar, tengo 25 años y soy de Río Cuarto, Córdoba, Argentina.
+            Trabajo en el Correo Oficial de la República Argentina S.A. en la parte operativa y,
+            estoy estudiando en el ITEC para seguir creciendo. Tengo dos compañeros de vida un perro y un gato. Me gustan los desafíos
+            y siempre busco aprender cosas nuevas. En mi tiempo libre mis aficiones son el futbol
+            y los videojuegos.
+        </p>
+    </div>
+    <h2>Mi álbum personal</h2>
+    <div class="album">
+        <a href="{{ url_for('static', filename='sobre_mi/alianza1.jpg') }}">
+            <img src="{{ url_for('static', filename='sobre_mi/alianza1.jpg')}}">
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/alianza2.jpg') }}">
+            <img src="{{ url_for('static', filename='sobre_mi/alianza2.jpg')}}">
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/alianza3.jpg') }}"> 
+            <img src="{{ url_for('static', filename='sobre_mi/alianza3.jpg') }}">
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/alianza4.jpg') }}"> 
+            <img src="{{ url_for('static', filename='sobre_mi/alianza4.jpg') }}">
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/alianza5.jpg') }}"> 
+            <img src="{{ url_for('static', filename='sobre_mi/alianza5.jpg') }}">
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/corcho1.jpg') }}"> 
+            <img src="{{ url_for('static', filename='sobre_mi/corcho1.jpg') }}"> 
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/corchoymushu1.jpg') }}">
+            <img src="{{ url_for('static', filename='sobre_mi/corchoymushu1.jpg') }}"> 
+        </a>    
+        <a href="{{ url_for('static', filename='sobre_mi/cuyo1.jpg') }}">
+            <img src="{{ url_for('static', filename='sobre_mi/cuyo1.jpg') }}"> 
+        </a>
+        <a href="{{ url_for('static', filename='sobre_mi/cuyo2.jpg') }}">
+            <img src="{{ url_for('static', filename='sobre_mi/cuyo2.jpg') }}"> 
+        </a>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" async></script>
+<script>
+    // Espera un instante para asegurar que baguetteBox.js se cargue
+    // y luego lo ejecuta en todos los divs con la clase 'album'
+    window.addEventListener('load', function() {
+        baguetteBox.run('.album');
+        // Si tu div tuviera otra clase, la pones aquí en lugar de '.album'
+    });
+</script>
+
+{% endblock %}

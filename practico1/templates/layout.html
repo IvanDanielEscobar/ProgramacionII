@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Mi Curriculum Online">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Ivan Escobar">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha512-NVt7pmp2VRंशिकvkYAkwn+37G4wnpGDN6cVYZtVNXknnQJsKQrEUoLpHHC2m4cURwEszQIlN05G6zh7PyM1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body class="{%block body_class%}{%endblock%}">
+        <nav class="menu-navegacion">
+            <h3>Mi Curriculum</h3>
+            <ul>
+                <li><a href="{{ url_for('datos_personales')}}">Datos Personales</a></li>
+                <li><a href="{{ url_for('contacto')}}">Datos de Contacto</a></li>
+                <li><a href="{{ url_for('redes_sociales')}}">Redes Sociales</a></li>
+                <li><a href="{{ url_for('idiomas')}}">Idioma y software</a></li>
+                <li><a href="{{ url_for('intereses')}}">Intereses</a></li>
+                <li><a href="{{ url_for('sobre_mi')}}">Sobre Mí</a></li>
+                <li><a href="{{ url_for('experiencia')}}">Experiencia Profesional</a></li>
+                <li><a href="{{ url_for('educacion')}}">Educación</a></li>
+                <li><a href="{{ url_for('habilidades')}}">Habilidades</a></li>
+                <li><a href="{{ url_for('cursos')}}">Cursos</a></li>
+                <li><a href="{{ url_for('referencias')}}">Referencias</a></li>
+            </ul>
+        </nav>
+        <main class="contenedor-body">
+            {% block body %}
+            {%  endblock %}
+        </main>
+        
+        <footer>
+            <p>Ivan Escobar. 2025</p>
+            <ul>
+                <a href="https://wa.me/5493586000456" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> {# Ícono de wasap#}
+                </a>
+                <li>
+                    <a href="{{ url_for('index')}}">Inicio</a>
+                </li>
+            </ul>
+        </footer>
+        
+    </body>
+    </html>

@@ -1,0 +1,148 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Curriculum Vitae - Ivan Escobar
+{% endblock %}
+{% block body %}    
+<div class="contenedor-datos">
+    <h1 class="ocultar">Datos Personales</h1>
+    <img src="{{ url_for('static', filename='img/mifoto.jpg') }}" alt="Foto de Ivan Escobar"> 
+    <div class="texto-datos">
+        <p><strong>Nombre:</strong> Ivan Daniel Escobar</p>
+        <p><strong>Fecha de Nacimiento:</strong> 15/07/1999</p>
+        <p><strong>Dirección:</strong> Pasaje Obregon 597, Rio Cuarto, Cordoba, Argentina</p>
+    </div>
+</div>
+
+<div class="contenedor-sobremi">
+    <h2>Sobre Mi</h2>
+    <p>
+        ¡Hola! Soy Iván Escobar, tengo 25 años y soy de Río Cuarto, Córdoba, Argentina.
+        Trabajo en el Correo Oficial de la República Argentina S.A. en la parte operativa y,
+        estoy estudiando en el ITEC para seguir creciendo. Tengo dos compañeros de vida un perro y un gato. Me gustan los desafíos
+        y siempre busco aprender cosas nuevas. En mi tiempo libre mis aficiones son el futbol
+        y los videojuegos.
+    </p>
+</div>
+
+<div class="contenedor-contacto">
+    <h2>Datos de Contacto:</h2>
+    <ul class="iconos-contacto">
+        <li>
+            <a href="https://wa.me/5493586000456" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> {# Ícono de wasap#}
+            </a>
+        </li>
+        <li>
+            <a href="mailto:i.escobar@itecriocaurto.org.ar" aria-label="Enviar correo electrónico">
+                <i class="fas fa-envelope" aria-hidden="true"></i> {# Ícono de email #}
+            </a> 
+        </li>
+        <li>
+            <a href="https://github.com/IvanDanielEscobar" target="_blank" aria-label="Ver perfil de GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i> {# Ícono de GitHub #}
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/ivan-daniel-escobar-55493a186/" target="_blank" aria-label="Ver perfil de LinkedIn">
+                <i class="fab fa-linkedin" aria-hidden="true"></i> {# Ícono de LinkedIn #}
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="contenedor-redes-sociales">
+    <p>Redes Sociales:</p>
+        <ul class="lista-redes">
+            <li>
+                <a href="https://www.instagram.com/ivan.escobar.tfr/" target="_blank" aria-label="Ver perfil de instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> {# Ícono Instagram #}
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.facebook.com/ivan.escobar.5621" target="_blank" aria-label="Ver perfil de facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i> {# Ícono Facebook #}
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com/ivanescobar_tfr" target="_blank" aria-label="Ver perfil de X">
+                    <i class="fab fa-x-twitter" aria-hidden="true"></i> {# Ícono x / Twitter #}
+                </a>
+            </li>
+        </ul>
+</div>    
+
+<div class="contenedor-experiencia">
+    <h2>Experiencia Profesional</h2>
+    <div class="experiencia-lista">
+        <article>
+            <h3>Correo Oficial de la Republica Argentina S.A.</h3>
+            <p>Puesto: Auxiliar, 2020 - Presente</p>
+            <p>Descripción: Desempeño tareas operativas en el área de logística, incluyendo la
+                carga y descarga de camiones y camionetas, clasificación de
+                encomiendas por destino, armado y desarmado de pallets y sacos
+                para su distribución. Además, realizo el rescate de encomiendas con
+                solicitud de devolución, asegurando un flujo eficente y organizado
+                de los envíos.</p>
+        </article>
+        <article>
+            <h3>ITEC</h3>
+            <p>Puesto: Ayudante tecnico, 2019 - 2019</p>
+            <p>Descripción: Colaboré en el mantenimiento de laboratorios informáticos, realizando tareas de soporte técnico, configuración
+                de equipos y asegurando el correcto funcionamiento de hardware y software.</p>
+        </article>
+        <article>
+            <h3>Quimica Carnerillo</h3>
+            <p>Puesto: Empleado de Comercio, 2016 - 2017</p>
+            <p>Descripción: Atención al cliente y ventas, asesorando sobre
+                productos, reposición de stock y control de mercadería. Además,
+                el mantenimiento del orden y la gestión de caja.</p>
+        </article>
+    </div>
+</div>
+
+<div class="contenedor-educacion">
+    <h2>Educacion</h2>
+    <div class="educacion-lista">    
+        <article>
+            <h3>Tecnicatura Superior en Desarrollo de Software</h3>
+            <p>Institución: Instituto Tecnologico Rio Cuarto, Ingreso 2019 - Trancision a otras actividades 2020 - Reingreso 2025</p>
+        </article>
+
+        <article>
+            <h3>Licenciatura en Ciencias de la Comunicacion</h3>
+            <p>Institución: Universidad Nacional de Rio Cuarto, Ingreso 2018 - Cambio de enfoque 2019 </p>
+        </article>
+
+        <article>
+            <h3>Bachiller en Ciencias Sociales y Humanidades</h3>
+            <p>Institución: Instituto Superior Jeronimo Luis de Cabrera, Ingres 2012 - Finalizado 2017</p>
+        </article>
+    </div>
+</div>
+
+<div class="contenedor-habilidades">    
+    <h2>Habilidades</h2>
+        <div class="habilidades-blandas">
+            <h3>Habilidades Blandas</h3>
+            <ul>
+                <li><strong>Comprension rapida:</strong> Entendimiento ágil de nuevos procesos y flujos de trabajo.</li>
+                <li><strong>Rapido Aprendizaje:</strong> Compresión y realización eficaz de nuevas tareas asignadas.</li>
+                <li><strong>Trabajo en Equipo:</strong> Comunicación abierta y eficaz para resolver problemas.</li>
+                <li><strong>Autonomia:</strong> Capacidad para asumir y cumplir responsabilidades de forma independiente.</li>
+            </ul>
+        </div>
+</div>
+<div class="contenedor-software">
+    <h2>Software:</h2>
+    <div class="iconos-software">
+        <i class="fab fa-linux" title="Linux / Ubuntu"></i>
+        <i class="fab fa-html5" title="HTML5"></i>
+        <i class="fab fa-css3-alt" title="CSS3"></i>
+        <i class="fab fa-js" title="JavaScript"></i>
+        <i class="fab fa-python" title="Python"></i>
+        <i class="fas fa-code" title="Visual Studio Code"></i>
+    </div>
+</div>
+{% endblock %}

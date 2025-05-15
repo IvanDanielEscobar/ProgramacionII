@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{%block body_class%}pagina-cursos{%endblock%}
+{% block tittle %}
+Ivan Escobar - Cursos
+{% endblock %}
+{% block body %}
+<div class="contenedor-cursos">
+    <h2>cursos y capacitaciones</h2> 
+
+    <table class="tabla-cursos">
+        <thead> 
+            <tr> 
+                <th scope="col">nombre del curso</th>
+                <th scope="col">institucion / plataforma</th>
+                <th scope="col">año</th> 
+                <th scope="col">certificado</th> 
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>introduccion a python</td> 
+                <td>plataforma ejemplo</td>
+                <td>2024</td>
+                <td><a href="/ruta/a/tu/certificado1.pdf" target="_blank">ver</a></td> {# =jemplo con enlace #}
+            </tr>
+        
+            <tr>
+                <td>herramientas ofimaticas</td>
+                <td>itecriocuarto</td>
+                <td>2023</td>
+                <td>si</td> 
+            </tr>
+           
+            <tr>
+                <td>otro curso importante</td>
+                <td>institucion abc</td>
+                <td>2022</td>
+                <td>no</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

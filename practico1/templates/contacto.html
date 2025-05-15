@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{%block body_class%}pagina-contacto{%endblock%}
+{% block tittle %}
+Ivan Escobar - Datos de Contacto
+{% endblock %}
+{% block body %}
+<div class="contenedor-datos-contacto">    
+    <h1 class="ocultar">Contacto</h1>
+    <div class="contenedor-contacto">
+        <ul class="iconos-contacto">
+            <li>
+                <a href="https://wa.me/5493586000456" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> {# Ícono de wasap#}
+                </a>
+            </li>
+            <li>
+                <a href="mailto:i.escobar@itecriocaurto.org.ar" aria-label="Enviar correo electrónico">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> {# Ícono de email #}
+                </a> 
+            </li>
+            <li>
+                <a href="https://github.com/IvanDanielEscobar" target="_blank" aria-label="Ver perfil de GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i> {# Ícono de GitHub #}
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/ivan-daniel-escobar-55493a186/" target="_blank" aria-label="Ver perfil de LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i> {# Ícono de LinkedIn #}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

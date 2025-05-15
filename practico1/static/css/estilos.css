@@ -1,0 +1,1426 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Markazi+Text:wght@400..700&display=swap');
+
+/* estilos globales*/
+:root {
+    /*colores*/
+    --color-bg-body: rgb(2, 3, 53); /*fondo principal*/
+    --color-bg-nav-footer: rgb(0, 8, 80); /*fondo del nav/footer*/
+    --color-bg-container: #010238; /*fondo del color principal*/
+    --color-bg-card: #05354b; /*fondo de las tarjetas*/
+
+    --color-text-dark: #333333; /*texto principal oscuro*/
+    --color-text-medium: #555555; /*texto secundario oscuro*/
+    --color-text-light: #ffffff; /*texto principal claro*/
+    --color-text-light-medium: #cccccc; /*texto secundario claro*/
+    --color-text-light-soft: #aaaaaa; /*texto mas suave*/
+    --color-text-card-heading: #a7a7a7;
+    --color-text-card-body: #c5c5c5;
+
+    --color-link: #66aaff; /*color de enlaces*/
+    --color-link-hover: #99ccff; /*cpolor de enlaces hover*/
+    --color-border: #1b1b3d; /*color de bordes claros*/
+    --color-border-separator: #1b1b3d; /*color de linea separadora*/
+    --color-shadow: rgba(0, 0, 0, 0.2); /*color base para sombras*/
+
+    /*fuente*/
+    --font-family-headings: "DM Serif Text", serif; /*fuente para titulos*/
+    --font-family-base: "Markazi Text", serif; /*fuente para el cuerpo*/
+    --font-size-base: 1.1em; /*tamanio base para parrafos y listas*/
+    --font-size-small: 1em; /*texto un poco mas pequenio*/
+    --font-size-h1: 2em; /*tamanio h1*/
+    --font-size-h2-section: 1.6em; /*tamanio h2*/
+    --font-size-h2-card: 1.3em; /*tamanio h2 dentro de las cajas*/
+    --font-size-h3-section: 1.6em;
+    --font-size-h3-card: 1.2em; /*tamanio h3 y h4 dentro de las tarjetas*/ 
+    --font-height-base: 1.6; /*interlineado base*/
+    --font-height-paragraph: 1.7; /*interlineado para parrafos largos*/
+
+    /*espaciado*/
+    --spacing-xs: 5px;
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+    --spacing-xxl: 30px;
+    --spacing-section-v: 30px;  /* Padding vertical de sección */
+    --spacing-section-h: 20px;  /* Padding horizontal de sección */
+    --gap-grid: 20px;        /* Gap para grids */
+    --spacing-section-v: var(--spacing-xxl); /* 30px */
+    --spacing-section-h: var(--spacing-lg); /* 20px */
+    --gap-grid: var(--spacing-xl);  /* 25px */
+    --gap-grid-skills: var(--spacing-xxl);  /* 30px */
+
+    --line-height-base: 1.6;        /* Interlineado base (1.6 veces el tamaño de fuente) */
+    --line-height-paragraph: 1.7;   /* Interlineado un poco mayor para párrafos largos */
+    
+    /* Layout */
+    --container-max-width: 1800px;    /* Ancho máximo del contenedor principal */
+    --container-padding-h: var(--spacing-lg); /* 20px */
+    --container-padding-v: var(--spacing-xxl); /* 30px */
+
+    /* Bordes y Sombras */
+    --border-radius-card: 8px;        /* Radio de borde para tarjetas */
+    --border-card: 1px solid var(--color-border); /* Borde estandar de tarjeta */
+    --box-shadow-card: 0 2px 5px var(--color-shadow); /* Sombra estándar tarjeta */
+}
+
+/* Clase para ocultar visualmente pero mantener accesible */
+.ocultar {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px; /* Evita solapamientos */
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* Evita que el texto se divida en líneas */
+    border: 0;
+}
+
+/* Reset Básico para evitar inconsistencias entre navegadores no es obligatorio*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Hace que padding y border no aumenten el tamaño total del elemento */
+}
+html {
+    height: 100%;
+}
+
+ul {
+    list-style: none; /* Quita los puntos de las listas */
+}
+
+a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: inherit; /* Hace que los enlaces hereden el color del texto padre por defecto */
+}
+
+img {
+    max-width: 100%; /* Asegura que las imágenes no se desborden de su contenedor */
+    display: block; /* Evita espacios extra debajo de las imagenes */
+}
+
+/* estilos generales del body */
+body {
+    min-height: 100%;       /* para que ocupe al menos toda la pantalla */
+    display: flex;          /* flexbox */
+    flex-direction: column;/* apila nav, main, footer verticalmente */
+    background-color: var(--color-bg-body);
+    font-family: var(--font-family-base);
+    color: var(--color-text-light-medium); /* Color de texto por defecto */
+    font-size: var(--font-size-base); /* Tamaño base definido en variables */
+    line-height: var(--line-height-base); /* Interlineado base */
+    }
+
+/* estilos generales de encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    color: var(--color-text-light); /* Color claro principal para titulos */
+    margin-top: var(--spacing-xl); /* Espacio arriba  */
+    line-height: 1.3; /* Interlineado más ajustado para títulos */
+}
+
+h1 {
+    font-size: var(--font-size-h1); 
+}
+h2 {
+    font-size: var(--font-size-h2-section);
+}
+h3 {
+    font-size: var(--font-size-h3-section);
+}
+h4 {/* Usando h3-card para h4 */
+    font-size: var(--font-size-h3-card);
+} 
+
+
+/* estilos generales de enlaces */
+a {
+    color: var(--color-link);
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline; 
+}
+
+/* estilo del contenedor principal */
+main.contenedor-body {
+    width: 95%; /* Ocupa casi todo el ancho, pero deja un margen */
+    max-width: var(--container-max-width); /* Ancho maximo definido en variables */
+    margin: var(--spacing-xl) auto; /* margen arriba/abajo y centrado horizontal */
+    background-color: var(--color-bg-container); 
+    color: var(--color-text-light); /* Color de texto por defecto  */
+    border-radius: var(--border-radius-card); /* Bordes redondeados */
+    box-shadow: var(--box-shadow-card); 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;/*3 columnas de igual fraccion*/
+    grid-template-areas:
+    "exp datos edu"     /* fila 1 */
+    "exp sobremi edu"   /* fila 2 */
+    "exp contacto hab"    /* fila 3 */
+    "soft redes    hab";     /* fila 4 */
+    gap: var(--spacing-md);/*espacio entre las areas*/
+    row-gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    flex-grow: 1;
+}
+/* padding interno para las secciones en el grid */
+main.contenedor-body > div {
+    padding: var(--spacing-md);
+}
+/* estilos menu de navegacion   */
+.menu-navegacion { 
+    background-color: var(--color-bg-nav-footer);
+    padding: var(--spacing-md) var(--spacing-xxl); /* Espaciado interno */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Título a la izquierda, lista a la derecha */
+}
+/* estilo para el H3 dentro del menu */
+.menu-navegacion h3 {
+    color: var(--color-text-light);
+    margin: 0; 
+    padding: 0;
+    font-size: 1.5em;
+}
+/* estilo para la lista UL del menu */
+.menu-navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* estilo para cada LI de la UL */
+.menu-navegacion li {
+    display: inline-block; 
+    margin: 0 0 0 var(--spacing-md); 
+}
+/* quitar margen izquierdo del primer LI */
+.menu-navegacion li:first-child {
+    margin-left: 0;
+}
+/* estilo para los enlaces A dentro de cada LI */
+.menu-navegacion li a {
+    color: var(--color-text-light);
+    font-weight: bold; 
+    padding: var(--spacing-xs) var(--spacing-sm);
+    display: inline-block; 
+    border-radius: 4px; 
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave para el hover */
+}
+/* estilo para el hover de los enlaces */
+.menu-navegacion li a:hover {
+    color: var(--color-text-dark); 
+    background-color: var(--color-link-hover); 
+}
+
+/* estilos footer */
+footer {
+    background-color: var(--color-bg-nav-footer); 
+    color: var(--color-text-light-medium);
+    padding: var(--spacing-lg) var(--spacing-xxl);
+    margin-top: var(--spacing-xxl); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* empuja el contenido (texto + lista) a la derecha */
+}
+footer p {
+    margin: 0; /* Quitar margenes por defecto */
+    margin-right: var(--spacing-md); /* espacio entre el texto y la lista */
+    color: var(--color-text-light); /* texto principal claro */
+    font-weight: bold;
+}
+/* lista UL de enlaces */
+footer ul {
+    margin: 0;
+    padding: 0;
+}
+/* Items LI de la lista */
+footer li {
+    display: inline-block; 
+    margin-left: var(--spacing-md); 
+}
+footer li a {
+    color: var(--color-text-light-soft); 
+    display: inline-block; 
+    padding: var(--spacing-xs) var(--spacing-sm); 
+    border-radius: 4px; 
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave */
+}
+/* Hover de los enlaces A  */
+footer li a:hover {
+    background-color: var(--color-link-hover); 
+    color: var(--color-text-dark); 
+}
+
+/* estilos datos personales */
+.contenedor-datos {
+    grid-area: datos;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: var(--spacing-xxl);
+}
+/* estilo para la imagen dentro de .contenedor-datos */
+.contenedor-datos img {
+    width: 180px; /* Ancho fijo para la imagen */
+    height: 180px;
+    object-fit: cover; 
+    border-radius: 20%; 
+    border: 3px solid var(--color-border);
+    flex-shrink: 0; /* Evita que la imagen se encoja si no hay espacio */
+}
+/* estilo para los parrafos dentro de .texto-datos */
+.contenedor-datos .texto-datos p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm); 
+}
+/* Quitar margen inferior del ultimo parrafo dentro de .texto-datos */
+.contenedor-datos .texto-datos p:last-child {
+    margin-bottom: 0;
+}
+/* Estilo para las etiquetas <strong> dentro de los parrafos */
+.contenedor-datos .texto-datos p strong {
+    color: var(--color-text-light-medium); 
+    margin-right: var(--spacing-xs); 
+}
+
+/* Estilos Sección Sobre Mí     */
+
+.contenedor-sobremi {
+    grid-area: sobremi; 
+}
+/* Centrar el título H2 de esta sección */
+.contenedor-sobremi h2 {
+    text-align: center;
+}
+/* Estilo para el párrafo dentro de Sobre Mí */
+.contenedor-sobremi p {
+    line-height: var(--line-height-paragraph); 
+    max-width: 1000px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 0; 
+    text-align: center; 
+}
+
+/* Estilos Sección Contacto */
+.contenedor-contacto {
+    grid-area: contacto;
+    text-align: center;
+}
+.contenedor-contacto .iconos-contacto {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: var(--spacing-lg); 
+    margin-top: var(--spacing-md); 
+}
+.contenedor-contacto .iconos-contacto li a {
+    color: var(--color-link); 
+    font-size: 2em; 
+    padding: var(--spacing-sm); 
+    display: inline-block; 
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px;
+    line-height: calc(60px - 2 * var(--spacing-sm)); 
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.contenedor-contacto .iconos-contacto li a:hover {
+    color: var(--color-text-dark); /* Color del icono en hover */
+    background-color: var(--color-link-hover); /* Fondo en hover */
+    transform: scale(1.1); /* Efecto de zoom ligero en hover */
+}
+
+/* estilos redes sociales */
+/* contenedor que envuelve el P y la lista de redes */
+.contenedor-redes-sociales {
+    grid-area: redes;
+    text-align: center;   
+}
+/* estilo para el párrafo "Mis redes personales:" */
+.contenedor-redes-sociales p {
+    margin: 0; /* quitamos margenes por defecto */
+    color: var(--color-text-light-medium); 
+    font-weight: bold; 
+    margin-bottom: var(--spacing-md);
+}
+/* la lista UL que contiene los iconos */
+.contenedor-redes-sociales .lista-redes {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md); 
+}
+/* estilo para los enlaces (botones de icono) */
+.contenedor-redes-sociales .lista-redes li a {
+    color: var(--color-link);
+    font-size: 1.6em; 
+    padding: var(--spacing-xs); 
+    display: inline-block;
+    border-radius: 50%;
+    width: 45px; /* tamaño del boton */
+    height: 45px; /* tamaño del boton */
+    line-height: calc(45px - 2 * var(--spacing-xs)); 
+    text-align: center; /* Centrado horizontal del icono */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+/* estilo hover */
+.contenedor-redes-sociales .lista-redes li a:hover {
+    color: var(--color-text-dark);
+    background-color: var(--color-link-hover);
+    transform: scale(1.1);
+}
+
+
+/* estilos experiencia */
+.contenedor-experiencia {   
+    grid-area: exp;
+}
+
+.contenedor-experiencia h2 {
+    text-align: center; /* centrar titulo de seccion */
+    margin-bottom: var(--spacing-lg); /* espacio antes de la lista de trabajos */
+}
+/* Contenedor de la rejilla para los articulos */
+.contenedor-experiencia .experiencia-lista {
+    display: grid;
+    /* Crea columnas automáticas que tengan al menos 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap-grid); /* espacio entre las tarjetas */
+}
+/* Estilo para cada tarjeta de experiencia  */
+.contenedor-experiencia .experiencia-lista article {
+    background-color: var(--color-bg-card); /* fondo de tarjeta definido en variables */
+    padding: var(--spacing-lg); /* espaciado interno */
+    border-radius: var(--border-radius-card); /* bordes redondeados */
+    border: var(--border-card); /* borde  */
+    box-shadow: var(--box-shadow-card); /* sombra*/
+    /* Añadido para que las tarjetas con distinto contenido intenten alinearse mejor */
+    display: flex;
+    flex-direction: column;
+}
+/* titulo H3 dentro de la tarjeta */
+.contenedor-experiencia .experiencia-lista article h3 {
+    /* font-family ya heredado */
+    font-size: var(--font-size-h3-card); /* Tamaño especifico para H3 en tarjeta */
+    color: var(--color-text-card-heading); /* color especifico cabecera tarjeta */
+    margin-top: 0; /* quitar margen superior */
+    margin-bottom: var(--spacing-sm); /* espacio antes del puesto */
+}
+/* parrafos dentro de la tarjeta */
+.contenedor-experiencia .experiencia-lista article p {
+    color: var(--color-text-card-body); /* Color especifico cuerpo */
+    line-height: var(--line-height-paragraph); /* interlineado para descripcion */
+    margin-bottom: var(--spacing-sm); /* espacio entre puesto y descripcion */
+}
+/* Quitar margen inferior del ultimo parrafo en la tarjeta */
+.contenedor-experiencia .experiencia-lista article p:last-of-type {
+    margin-bottom: 0;
+}
+/* hacer que el parrafo de descripcion ocupe el espacio restante si las tarjetas tienen alturas variables */
+.contenedor-experiencia .experiencia-lista article p:nth-of-type(2) { /* Asumiendo que Descripción es el 2do P */
+   flex-grow: 1;
+}
+
+/* estilos educacion*/
+.contenedor-educacion {
+    grid-area: edu;
+}
+
+.contenedor-educacion h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+/*contenedor de los articulos*/
+.contenedor-educacion .educacion-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap-grid);
+}
+/*estilo para cada tarjeta educacion*/
+.contenedor-educacion .educacion-lista article {
+    background-color: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-card);
+    border: var(--border-card); 
+    box-shadow: var(--box-shadow-card); 
+    display: flex;
+    flex-direction: column;
+}
+/*titulo h3 dentro de tarjetas*/
+.contenedor-educacion .educacion-lista article h3{
+    font-size: var(--font-size-h3-card);
+    color: var(--color-text-card-heading);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+.contenedor-educacion .educacion-lista article p {
+    color: var(--color-text-card-body);
+    line-height: var(--line-height-paragraph);
+    margin-top: 0;
+    margin-bottom: 0;
+    /* añado esta linea para que el parrafo ocupe el espacio restante*/
+    flex-grow: 1;
+}
+
+
+/*estilos seccion habilidades*/
+.contenedor-habilidades {
+    grid-area: hab;
+}
+.contenedor-habilidades > h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* estilo de "tarjeta" aplicado solo a habilidades blandas */
+.contenedor-habilidades .habilidades-blandas {
+    background-color: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-card);
+    border: var(--border-card); 
+    box-shadow: var(--box-shadow-card); 
+    /* max-width: 500px;  */ /* limitar ancho */
+    /* margin-left: auto; */ /* centrar */
+    /* margin-right: auto;*/ /* centrar */
+}
+
+/* titulo h3 dentro de habilidades blandas */
+.contenedor-habilidades .habilidades-blandas h3 {
+    font-size: var(--font-size-h3-card);
+    color: var(--color-text-card-heading);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
+}
+/* items li dentro de habilidades blandas */
+.contenedor-habilidades .habilidades-blandas li {
+    color: var(--color-text-card-body);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-base);
+}
+
+.contenedor-habilidades .habilidades-blandas ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* strong dentro de habilidades blandas */
+.contenedor-habilidades .habilidades-blandas li strong {
+    color: var(--color-text-light);
+    margin-right: var(--spacing-xs);
+}
+
+/* estilos menu de navegacion   */
+.menu-navegacion { 
+    background-color: var(--color-bg-nav-footer);
+    padding: var(--spacing-md) var(--spacing-xxl); /* Espaciado interno */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Título a la izquierda, lista a la derecha */
+}
+/* estilo para el H3 dentro del menu */
+.menu-navegacion h3 {
+    color: var(--color-text-light);
+    margin: 0; 
+    padding: 0;
+    font-size: 1.5em;
+}
+/* estilo para la lista UL del menu */
+.menu-navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* estilo para cada LI de la UL */
+.menu-navegacion li {
+    display: inline-block; 
+    margin: 0 0 0 var(--spacing-md); 
+}
+/* quitar margen izquierdo del primer LI */
+.menu-navegacion li:first-child {
+    margin-left: 0;
+}
+/* estilo para los enlaces A dentro de cada LI */
+.menu-navegacion li a {
+    color: var(--color-text-light);
+    font-weight: bold; 
+    padding: var(--spacing-xs) var(--spacing-sm);
+    display: inline-block; 
+    border-radius: 4px; 
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave para el hover */
+}
+/* estilo para el hover de los enlaces */
+.menu-navegacion li a:hover {
+    color: var(--color-text-dark); 
+    background-color: var(--color-link-hover); 
+}
+
+/* estilos footer */
+footer {
+    background-color: var(--color-bg-nav-footer); 
+    color: var(--color-text-light-medium);
+    padding: var(--spacing-lg) var(--spacing-xxl);
+    margin-top: var(--spacing-xxl); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* empuja el contenido (texto + lista) a la derecha */
+}
+footer p {
+    margin: 0; /* Quitar margenes por defecto */
+    margin-right: var(--spacing-md); /* espacio entre el texto y la lista */
+    color: var(--color-text-light); /* texto principal claro */
+    font-weight: bold;
+}
+/* lista UL de enlaces */
+footer ul {
+    margin: 0;
+    padding: 0;
+}
+/* Items LI de la lista */
+footer li {
+    display: inline-block; 
+    margin-left: var(--spacing-md); 
+}
+footer li a {
+    color: var(--color-text-light-soft); 
+    display: inline-block; 
+    padding: var(--spacing-xs) var(--spacing-sm); 
+    border-radius: 4px; 
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave */
+}
+/* Hover de los enlaces A  */
+footer li a:hover {
+    background-color: var(--color-link-hover); 
+    color: var(--color-text-dark); 
+}
+
+/* estilos datos personales */
+.contenedor-datos {
+    grid-area: datos;
+    display: flex; 
+    align-items: center; 
+    gap: var(--spacing-xxl);
+    /* Centrar este contenedor específico si quieres que sea más estrecho */
+    max-width: 800px; /* Ancho maximo para esta seccion especffica */
+    margin-left: auto; /* Centra el contenedor si tiene max-width */
+    margin-right: auto; /* Centra el contenedor si tiene max-width */
+}
+/* estilo para la imagen dentro de .contenedor-datos */
+.contenedor-datos img {
+    width: 180px; /* Ancho fijo para la imagen */
+    height: 180px;
+    object-fit: cover; 
+    border-radius: 20%; 
+    border: 3px solid var(--color-border);
+    flex-shrink: 0; /* Evita que la imagen se encoja si no hay espacio */
+}
+/* estilo para los parrafos dentro de .texto-datos */
+.contenedor-datos .texto-datos p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm); 
+}
+/* Quitar margen inferior del ultimo parrafo dentro de .texto-datos */
+.contenedor-datos .texto-datos p:last-child {
+    margin-bottom: 0;
+}
+/* Estilo para las etiquetas <strong> dentro de los parrafos */
+.contenedor-datos .texto-datos p strong {
+    color: var(--color-text-light-medium); 
+    margin-right: var(--spacing-xs); 
+}
+
+/* Estilos Sección Sobre Mí     */
+
+.contenedor-sobremi {
+    grid-area: sobremi; 
+}
+/* Centrar el título H2 de esta sección */
+.contenedor-sobremi h2 {
+    text-align: center;
+}
+/* Estilo para el párrafo dentro de Sobre Mí */
+.contenedor-sobremi p {
+    line-height: var(--line-height-paragraph); 
+    max-width: 1000px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 0; 
+    text-align: center; 
+}
+
+/* Estilos Sección Contacto */
+.contenedor-contacto {
+    grid-area: contacto;
+    text-align: center;
+    padding-bottom: 0;
+}
+.contenedor-contacto .iconos-contacto {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: var(--spacing-lg); 
+    margin-top: var(--spacing-md); 
+    margin-bottom: 0;
+}
+.contenedor-contacto .iconos-contacto li a {
+    color: var(--color-link); 
+    font-size: 2em; 
+    padding: var(--spacing-sm); 
+    display: inline-block; 
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px;
+    line-height: calc(60px - 2 * var(--spacing-sm)); 
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.contenedor-contacto .iconos-contacto li a:hover {
+    color: var(--color-text-dark); /* Color del icono en hover */
+    background-color: var(--color-link-hover); /* Fondo en hover */
+    transform: scale(1.1); /* Efecto de zoom ligero en hover */
+}
+
+/* estilos redes sociales */
+/* contenedor que envuelve el P y la lista de redes */
+.contenedor-redes-sociales {
+    grid-area: redes;
+    text-align: center;   
+    padding-top: 0;
+}
+/* estilo para el párrafo "Mis redes personales:" */
+.contenedor-redes-sociales p {
+    margin: 0; /* quitamos margenes por defecto */
+    color: var(--color-text-light-medium); 
+    font-weight: bold; 
+    margin-bottom: var(--spacing-md);
+}
+/* la lista UL que contiene los iconos */
+.contenedor-redes-sociales .lista-redes {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md); 
+}
+/* estilo para los enlaces (botones de icono) */
+.contenedor-redes-sociales .lista-redes li a {
+    color: var(--color-link);
+    font-size: 1.6em; 
+    padding: var(--spacing-sm); 
+    display: inline-block;
+    border-radius: 50%;
+    width: 60px; /* tamaño del boton */
+    height: 60px; /* tamaño del boton */
+    line-height: calc(60px - 2 * var(--spacing-sm)); 
+    text-align: center; /* Centrado horizontal del icono */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+/* estilo hover */
+.contenedor-redes-sociales .lista-redes li a:hover {
+    color: var(--color-text-dark);
+    background-color: var(--color-link-hover);
+    transform: scale(1.1);
+}
+
+
+/* estilos experiencia */
+.contenedor-experiencia {
+    grid-area: exp;
+}
+
+.contenedor-experiencia h2 {
+    text-align: center; /* centrar titulo de seccion */
+    margin-bottom: var(--spacing-lg); /* espacio antes de la lista de trabajos */
+}
+/* Contenedor de la rejilla para los articulos */
+.contenedor-experiencia .experiencia-lista {
+    display: grid;
+    /* Crea columnas automáticas que tengan al menos 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap-grid); /* espacio entre las tarjetas */
+}
+/* Estilo para cada tarjeta de experiencia  */
+.contenedor-experiencia .experiencia-lista article {
+    background-color: var(--color-bg-body); /* fondo de tarjeta definido en variables */
+    padding: var(--spacing-lg); /* espaciado interno */
+    border-radius: var(--border-radius-card); /* bordes redondeados */
+    border: none; /* borde  */
+    box-shadow: var(--box-shadow-card); /* sombra*/
+    /* Añadido para que las tarjetas con distinto contenido intenten alinearse mejor */
+    display: flex;
+    flex-direction: column;
+}
+/* titulo H3 dentro de la tarjeta */
+.contenedor-experiencia .experiencia-lista article h3 {
+    /* font-family ya heredado */
+    font-size: var(--font-size-h3-card); /* Tamaño especifico para H3 en tarjeta */
+    color: var(--color-text-card-heading); /* color especifico cabecera tarjeta */
+    margin-top: 0; /* quitar margen superior */
+    margin-bottom: var(--spacing-sm); /* espacio antes del puesto */
+}
+/* parrafos dentro de la tarjeta */
+.contenedor-experiencia .experiencia-lista article p {
+    color: var(--color-text-card-body); /* Color especifico cuerpo */
+    line-height: var(--line-height-paragraph); /* interlineado para descripcion */
+    margin-bottom: var(--spacing-sm); /* espacio entre puesto y descripcion */
+}
+/* Quitar margen inferior del ultimo parrafo en la tarjeta */
+.contenedor-experiencia .experiencia-lista article p:last-of-type {
+    margin-bottom: 0;
+}
+/* hacer que el parrafo de descripcion ocupe el espacio restante si las tarjetas tienen alturas variables */
+.contenedor-experiencia .experiencia-lista article p:nth-of-type(2) { /* Asumiendo que Descripción es el 2do P */
+   flex-grow: 1;
+}
+
+/* estilos educacion*/
+.contenedor-educacion {
+    grid-area: edu;
+}
+
+.contenedor-educacion h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+/*contenedor de los articulos*/
+.contenedor-educacion .educacion-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap-grid);
+}
+/*estilo para cada tarjeta educacion*/
+.contenedor-educacion .educacion-lista article {
+    background-color: var(--color-bg-body);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-card);
+    border: none; 
+    box-shadow: var(--box-shadow-card); 
+    display: flex;
+    flex-direction: column;
+}
+/*titulo h3 dentro de tarjetas*/
+.contenedor-educacion .educacion-lista article h3{
+    font-size: var(--font-size-h3-card);
+    color: var(--color-text-card-heading);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+.contenedor-educacion .educacion-lista article p {
+    color: var(--color-text-card-body);
+    line-height: var(--line-height-paragraph);
+    margin-top: 0;
+    margin-bottom: 0;
+    /* añado esta linea para que el parrafo ocupe el espacio restante*/
+    flex-grow: 1;
+}
+
+
+/*estilos seccion habilidades*/
+.contenedor-habilidades {
+    grid-area: hab;
+}
+.contenedor-habilidades > h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* estilo de "tarjeta" aplicado solo a habilidades blandas */
+.contenedor-habilidades .habilidades-blandas {
+    background: none;
+    border: none;
+    padding: var(--spacing-lg);
+    max-width: 500px; /* limitar ancho */
+    margin-left: auto; /* centrar */
+    margin-right: auto; /* centrar */
+}
+
+/* titulo h3 dentro de habilidades blandas */
+.contenedor-habilidades .habilidades-blandas h3 {
+    font-size: var(--font-size-h3-card);
+    color: var(--color-text-card-heading);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
+}
+/* items li dentro de habilidades blandas */
+.contenedor-habilidades .habilidades-blandas li {
+    color: var(--color-text-card-body);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-base);
+}
+
+.contenedor-habilidades .habilidades-blandas ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* strong dentro de habilidades blandas */
+.contenedor-habilidades .habilidades-blandas li strong {
+    color: var(--color-text-light);
+    margin-right: var(--spacing-xs);
+}
+
+
+/* Contenedor principal de la sección Software */
+.contenedor-software {
+    grid-area: soft;
+    text-align: center;
+}
+
+.contenedor-software h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Contenedor específico para los iconos */
+.contenedor-software .iconos-software {
+    display: flex;          /* Usa Flexbox para alinear iconos */
+    flex-wrap: wrap;        /* Permite que los iconos pasen a la siguiente línea si no caben */
+    justify-content: center;/* Centra los iconos horizontalmente */
+    align-items: center;    /* Centra los iconos verticalmente si hay varias líneas */
+    gap: var(--spacing-xl);
+    padding: var(--spacing-sm) 0; 
+}
+/* estilos software */
+.contenedor-software .iconos-software i {
+    font-size: 2.5em; /* tamaño del icono */
+    color: var(--color-text-light-medium); /* Color del icono (puedes usar --color-link) */
+    width: 60px; /*Fija un ancho si prefieres */
+    text-align: center; /* Asegura centrado si fijaste ancho */
+    transition: color 0.2s ease, transform 0.2s ease; /* Transición suave para hover */
+}
+/* Efecto al pasar el ratón por encima (opcional) */
+.contenedor-software .iconos-software i:hover {
+    color: var(--color-link-hover); /* Cambia color en hover */
+    transform: scale(1.15); /* Agranda un poco el icono en hover */
+}
+
+
+/* --- estilos personalizados para la pagina datos personales --- */
+.pagina-datos-personales main.contenedor-body {
+    display: block;
+    grid-template-columns: none;
+    grid-template-areas: none;
+    gap: 0;
+    padding: var(--spacing-xl);
+}
+.pagina-datos-personales .contenedor-datos {
+    padding: var(--spacing-xl); 
+     max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    text-align: left;
+}
+.pagina-datos-personales .contenedor-datos img {
+    border-radius: 50%; 
+    border-width: 5px;
+    flex-shrink: 0; /*evita que la imagen se encoja si no hay espacio*/ 
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /*evita distorsion*/
+}
+.pagina-datos-personales .contenedor-datos .texto-datos {
+    text-align: left;
+    max-width: 700px;
+}
+.pagina-datos-personales .contenedor-datos .texto-datos p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm); 
+    line-height: var(--line-height-paragraph);
+    color: var(--color-text-light); 
+}
+.pagina-datos-personales .contenedor-datos .texto-datos p strong {
+    color: var(--color-text-light-medium);
+    margin-right: var(--spacing-xs);
+}
+.pagina-datos-personales .contenedor-datos .texto-datos p:last-child {
+    margin-bottom: 0;
+}
+.pagina-datos-personales h1 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-h1);
+    color: var(--color-text-light);
+    max-width: 1400px; /* el mismo ancho maximo que .contenedor-datos */
+    margin-left: auto;  
+    margin-right: auto; 
+    margin-top: var(--spacing-lg);
+}
+
+
+/* --- Estilos para pagina-contacto --- */
+.pagina-contacto main.contenedor-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: none;
+    grid-template-areas: none;
+    gap: 0;
+    padding: var(--spacing-xl);
+}
+.pagina-contacto .contenedor-datos-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xxl);
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.pagina-contacto .contenedor-datos-contacto h1 {
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-h1);
+    color: var(--color-text-light);
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.pagina-contacto .contenedor-datos-contacto .contenedor-contacto {
+    margin: 0;
+    padding: 0;
+}
+.pagina-contacto .iconos-contacto {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 6rem;
+    align-items: center;
+}
+.pagina-contacto .iconos-contacto li a {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-decoration: none;
+    color: var(--color-text-light-soft);
+    width: 70px; /* Ancho del circulo */
+    height: 70px; /* Alto del circulo */
+    border-radius: 50%; /* Hace el enlace circular */
+    background-color: transparent; /* Fondo transparente por defecto */
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Transicion completa */
+}
+
+.pagina-contacto .iconos-contacto li a i {
+    font-size: 2.8em;
+}
+
+.pagina-contacto .iconos-contacto li a:hover, .pagina-contacto .iconos-contacto li a:focus {
+    color: var(--color-bg-card);
+    background-color: var(--color-bg-body);
+    transform: scale(1.15);
+    outline: none;
+}
+
+
+/* --- Estilos para pagina-redes-sociales  --- */
+.pagina-redes-sociales main.contenedor-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* centra la lista ul horizontalmente */
+    justify-content: center;  /* centra la lista ul verticalmente */
+    grid-template-columns: none;
+    grid-template-areas: none;
+    gap: 0;
+    padding: var(--spacing-xl);
+}
+
+.pagina-redes-sociales .lista-redes {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* el main ya la centra */
+    display: flex;
+    flex-wrap: nowrap; /* forza una linea */
+    justify-content: center;
+    gap: 6rem; 
+    align-items: center;
+    width: fit-content;
+}
+.pagina-redes-sociales .lista-redes li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-text-light-soft);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+.pagina-redes-sociales .lista-redes li a i {
+    font-size: 2.8em;
+}
+.pagina-redes-sociales .lista-redes li a:hover,
+.pagina-redes-sociales .lista-redes li a:focus {
+    color: var(--color-bg-card); 
+    background-color: var(--color-bg-body); 
+    transform: scale(1.15);
+    outline: none;
+}
+
+
+/* --- estilos para pagina idiomas */
+.pagina-idiomas main.contenedor-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* centra la lista ul horizontalmente */
+    justify-content: center;  /* centra la lista ul verticalmente */
+    gap: 2rem;
+    padding: var(--spacing-xl);
+}
+.contenido-idiomas .contenido-idiomas ul {
+    list-style: none; 
+    padding-left: 0;  
+    margin: 0;        
+    text-align: center; 
+}
+.contenido-idiomas li {
+    margin-bottom: 0.5em; /* pequeño espacio por si agrego mas idiomas */
+    font-size: var(--font-size-base);   
+}
+.contenido-idiomas li strong {
+    color: var(--color-link-hover);
+    margin-left: 0.5em;
+}
+/* --- estilos para intereses --- */
+.pagina-intereses main.contenedor-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* centra la lista ul horizontalmente */
+    justify-content: center;  /* centra la lista ul verticalmente */
+    gap: 2rem;
+    padding: var(--spacing-xl);
+}
+/* Añade esto a tus estilos para la página de intereses */
+.contenedor-intereses h1 {
+    margin-bottom: 2.5rem; 
+}
+.iconos-intereses {
+    list-style: none; 
+    padding: 0;   
+    margin-top: 2.5rem; 
+}
+.iconos-intereses li {
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+    display: flex; 
+    align-items: center;
+    color: var(--color-link);
+}
+.iconos-intereses li i {
+    margin-right: 10px; 
+    font-size: 2.4rem;
+}
+
+/* --- estilos pagina-sobremi --- */
+.pagina-sobremi main.contenedor-body{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: var(--spacing-l) var(--spacing-m);
+    min-height: calc(100vh - var(--header-height, 60px) - var(--footer-height, 40px)); 
+}.contenedor-pagina-sobremi {
+    display: block;     
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+}
+.contenedor-pagina-sobremi h1 {
+    margin-bottom: 1.5rem; 
+}
+.contenedor-sobremi {
+    margin-bottom: 2rem;  
+}
+.contenedor-pagina-sobremi h2 {
+    margin-bottom: 1.5rem; 
+}
+.album {
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--gap-grid); 
+    margin-top: var(--spacing-xl); 
+    text-align: left; 
+}
+
+.album a {
+    display: block; /* Convierte el enlace en un contenedor tipo */ 
+    overflow: hidden; /* Esconde cualquier parte de la imagen que se salga */
+    /* Define la forma/proporción de cada item de la galería  */
+    aspect-ratio: 1 / 1; /* cuadrado */
+    border-radius: var(--border-radius-card); 
+}
+
+.album img {
+    display: block; 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;  
+    transition: transform 0.3s ease;
+}
+.album a:hover img {
+    transform: scale(1.05);
+}
+
+/*--- estilo pagina-experiencias ---*/
+.pagina-experiencia main.contenedor-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;  
+    padding: var(--spacing-l) var(--spacing-m);
+    min-height: calc(100vh - var(--header-height, 60px) - var(--footer-height, 40px)); 
+}
+.pagina-experiencia .experiencia-lista {
+    width: 100%;
+    box-sizing: border-box; /*incluye padding/border en el ancho si se añaden*/
+}
+.pagina-experiencia .contenedor-experiencia {
+    margin-top: 110px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.pagina-experiencia .experiencia-lista article {
+    background-color: var(--color-bg-card);    
+    border: 1px solid var(--color-border);     
+    border-radius: var(--border-radius-card);  
+    padding: var(--spacing-lg);                
+    margin-bottom: var(--spacing-xl);          
+    overflow: auto;                            
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+    box-sizing: border-box;    /* Asegura que padding/border no agranden la tarjeta */
+}
+.pagina-experiencia .experiencia-lista article:last-child {
+    margin-bottom: 0;
+}
+.pagina-experiencia .experiencia-lista article h3 {
+    margin-top: 0; 
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pagina-experiencia .experiencia-lista article p {
+    margin-bottom: var(--spacing-s); 
+    line-height: var(--line-height-paragraph);               
+}
+.pagina-experiencia .experiencia-lista article p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- estilos para pagina-educacion --- */
+.pagina-educacion main.contenedor-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;  
+    padding: var(--spacing-l) var(--spacing-m);
+    min-height: calc(100vh - var(--header-height, 60px) - var(--footer-height, 40px)); 
+}
+
+.pagina-educacion .educacion-lista {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pagina-educacion .contenedor-educacion {
+    margin-top: 110px; /* Quizás necesites ajustar este margen para la página de educación */
+    width: 100%;
+    box-sizing: border-box;
+}
+.pagina-educacion .educacion-lista article {
+    background-color: var(--color-bg-card);    
+    border: 1px solid var(--color-border);     
+    border-radius: var(--border-radius-card);  
+    padding: var(--spacing-lg);                
+    margin-bottom: var(--spacing-xl);          
+    overflow: auto;                            
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+    box-sizing: border-box;
+}
+.pagina-educacion .educacion-lista article:last-child {
+    margin-bottom: 0;
+}
+.pagina-educacion .educacion-lista article h3 {
+    margin-top: 0; 
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-xl);
+}
+.pagina-educacion .educacion-lista article p {
+    margin-bottom: var(--spacing-s); 
+    line-height: var(--line-height-paragraph);
+}
+.pagina-educacion .educacion-lista article p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* --- estilos para pagina-habilidades --- */
+.pagina-habilidades main.contenedor-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    padding: var(--spacing-l) var(--spacing-m); 
+    min-height: calc(100vh - var(--header-height, 60px) - var(--footer-height, 40px)); 
+}
+.pagina-habilidades .contenedor-software h2 {
+    text-align: center; 
+    margin-bottom: 1.5rem; /* espacio entre titulo e iconos */
+}
+.pagina-habilidades .iconos-software {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 1.5rem 2rem; 
+    padding: 1rem 0; 
+}
+.pagina-habilidades .iconos-software i {
+    font-size: 3rem; /* Aumentar el tamaño de los iconos */
+    color: var(--color-link); /* Definir un color base */
+    transition: transform 0.2s ease-in-out, color 0.2s ease; /* Para efecto hover suave */
+}
+.pagina-habilidades .iconos-software i:hover {
+    transform: scale(1.1); /* Agranda un poco el icono al pasar el mouse */
+    color: var(--color-link-hover); /* Cambia el color al pasar el mouse */
+    cursor: pointer; /* Indica que son interactivos (aunque no tengan link) */
+}
+.pagina-habilidades .contenedor-software {
+    margin-bottom: var(--spacing-xl, 30px);
+    
+}
+/* Estilos para la sección Habilidades Blandas */
+.pagina-habilidades .habilidades-blandas h3 {
+    text-align: center; /* Centrar título H. Blandas */
+    margin-bottom: 1.5rem; /* Espacio debajo del título */
+}
+
+.pagina-habilidades .habilidades-blandas ul {
+    list-style: none; /* Quitar los puntos/bullets de la lista */
+    padding-left: 0; /* Quitar el padding izquierdo por defecto de las listas */
+    margin-top: 0; 
+}
+
+.pagina-habilidades .habilidades-blandas li {
+    margin-bottom: var(--spacing-m, 15px); /* Espacio entre cada habilidad */
+    line-height: 1.6; /* Mejorar legibilidad */
+}
+
+/* Opcional: Estilo para el término strong (el nombre de la habilidad) */
+.pagina-habilidades .habilidades-blandas li strong {
+    display: block; /* Hace que la descripción empiece en una nueva línea */
+    margin-bottom: var(--spacing-xs, 5px); /* Pequeño espacio entre el nombre y la descripción */
+    color: var(--color-accent); /* Opcional: usar un color de acento si lo tienes */
+}
+
+/* --- estilos pagina-cursos --- */
+.pagina-cursos main.contenedor-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    padding: var(--spacing-l) var(--spacing-m); 
+    min-height: calc(100vh - var(--header-height, 60px) - var(--footer-height, 40px)); 
+}
+.pagina-cursos .contenedor-cursos {
+    margin-top: 110px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.pagina-cursos .contenedor-cursos h2 {
+    text-align: center; /* Centrar título */
+    border-bottom: 1px solid var(--color-border); /* Línea inferior */
+    padding-bottom: var(--spacing-s);       
+    margin-bottom: var(--spacing-xl); /* Espacio antes de la tabla */       
+}
+.pagina-cursos .tabla-cursos {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: var(--spacing-l); 
+    font-size: var(--font-size-base); 
+}
+.pagina-cursos .tabla-cursos th, .pagina-cursos .tabla-cursos td {
+    border: 1px solid var(--color-border-table, var(--color-border)); 
+    padding: var(--spacing-m); /* Espaciado interno en celdas */
+    text-align: left; /* Alineación del texto */
+    vertical-align: top; /* Alineación vertical por si hay celdas con alturas distintas */
+}
+.pagina-cursos .tabla-cursos thead th {
+    background-color: var(--color-bg-header-table, var(--color-bg-card)); /* Color de fondo para encabezado */
+    color: var(--color-text-header-table, var(--color-text)); 
+    font-weight: bold;
+    text-align: center; /* Centrar texto en encabezados */
+}
+
+/* rayas de cebra para las filas del cuerpo (tbody) */
+.pagina-cursos .tabla-cursos tbody tr:nth-child(even) {
+    background-color: var(--color-bg-row-alt, rgba(0, 0, 0, 0.05)); 
+}
+.pagina-cursos .tabla-cursos tbody tr:hover {
+    background-color: var(--color-bg-row-hover, rgba(0, 0, 0, 0.1));
+}
+.pagina-cursos .tabla-cursos td a {
+   color: var(--color-link);
+   text-decoration: underline;
+}
+.pagina-cursos .tabla-cursos td a:hover {
+   color: var(--color-link-hover);
+   text-decoration: none;
+}
+
+/* --- Estilos pagina-referencias --- */
+.pagina-referencias main.contenedor-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    padding: var(--spacing-l) var(--spacing-m); 
+    min-height: calc(100vh - var(--header-height, 60px) - var(--footer-height, 40px)); 
+}
+.pagina-referencias .contenedor-referencias {
+    margin-top: 110px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+.pagina-referencias .contenedor-referencias h1 {
+    text-align: center; 
+    border-bottom: 1px solid var(--color-border); 
+    padding-bottom: var(--spacing-s);       
+    margin-bottom: var(--spacing-xl);        
+}
+ .pagina-referencias .referencias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl, 25px);
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: var(--spacing-l); /* Espacio debajo del titulo/linea */
+ }
+.pagina-referencias .referencias article {
+    background-color: var(--color-bg-card);    
+    border: 1px solid var(--color-border);     
+    border-radius: var(--border-radius-card);  
+    padding: var(--spacing-lg);               
+    overflow: auto;                            
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+    box-sizing: border-box;
+    flex: 1 1 300px;/* Permite crecer(1), encoger(1), con base de 300px */
+    min-width: 280px;
+}
+.pagina-referencias .referencias article h2 {
+    margin-bottom: var(--spacing-m); 
+    font-size: var(--font-size-h2-card);
+}
+.pagina-referencias .referencias article p {
+    margin-bottom: var(--spacing-s); 
+    line-height: var(--line-height-paragraph);
+}
+.pagina-referencias .referencias article p:last-child {
+    margin-bottom: 0;
+}

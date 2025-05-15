@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block body_class %}pagina-redes-sociales{% endblock %}
+{% block tittle %}
+Ivan Escobar - Intereses
+{% endblock %}
+
+{% block body %}
+<div class="contenedor-redes-sociales">
+    <h1 class="ocultar">Redes Sociales:</h1>
+        <ul class="lista-redes">
+            <li>
+                <a href="https://www.instagram.com/ivan.escobar.tfr/" target="_blank" aria-label="Ver perfil de instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> {# Ícono Instagram #}
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.facebook.com/ivan.escobar.5621" target="_blank" aria-label="Ver perfil de facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i> {# Ícono Facebook #}
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com/ivanescobar_tfr" target="_blank" aria-label="Ver perfil de X">
+                    <i class="fab fa-x-twitter" aria-hidden="true"></i> {# Ícono x / Twitter #}
+                </a>
+            </li>
+        </ul>
+</div>    
+
+{% endblock %}
