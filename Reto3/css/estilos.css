@@ -1,0 +1,210 @@
+/*
+#  ·················
+#  ··_______________
+#  ·/·___/·___/·___/
+#  /·/__(__··|__··)·
+#  \___/____/____/··
+#  ·················
+*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+:root {
+    --green-color-bg: rgb(22, 196, 22); 
+    --white-color-bg: #ffff;
+    
+    --black-color-border: rgb(136, 124, 124);
+
+    --black-color-text: black;
+}
+a{
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+}
+
+body{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+    font-size: 1.8rem;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+}
+
+header nav {
+    display: flex;
+    background-color: var(--green-color-bg);
+    justify-content: space-between;
+    padding: 15px;
+}
+
+header nav ul{
+    display: flex;
+    width: 270px;
+    height: auto;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+header nav li {
+    margin: 10px;
+}
+
+main .seccion-menu {
+    display: flex;
+    margin: 0;
+    padding: 150px;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.seccion-producto {
+    background-image: url("../images/curve.png");
+    max-height: 50px;
+    background-size: cover;
+    background-position: center top;
+    margin: 70px 0;
+    padding: 0 20% 600px;
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
+
+}
+.seccion-producto .tarjeta-producto {
+    background-color: white;
+    margin: 50px 50px;
+    border-radius: 1%;
+    display: flex;
+    flex-direction: column;    
+    box-shadow:
+    
+}
+/*
+.contenedor-tarjetas-productos {
+    background-color: red;
+    
+    display: flex;
+    justify-content: center;
+    gap: 70px
+}
+.tarjeta-producto {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    width: 465px;
+    gap: 10px;
+    background-color: var(--white-color-bg);
+    
+    
+}
+
+.tarjeta-producto img{
+    width: 130px;
+}
+.imagen-produ {
+    display: flex;
+    justify-content: center;
+}
+.tarjeta-producto h2{
+    display: flex;
+    margin: 0 0 0 20px;
+    font-size: 1.3rem;
+}
+.tarjeta-producto a{
+    background-color: var(--green-color-bg);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #ffff
+}
+.tarjeta-producto p {
+    width: 70%;
+    margin: 0 20px 0 20px;
+    font-size: 0.8rem;
+}
+*/
+.seccion-feat {
+    display: flex;
+    justify-content: center;
+    padding: 150px 0;
+}
+
+.seccion-feat .contenedor-tarjetas-feat {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    gap: 70px;
+}
+.tarjeta-feat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.seccion-menciones {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100px;
+}
+.titulo-menciones {
+    display: flex;
+    justify-content: center;
+    padding: 25px 250px 250px 250px;
+    /*
+    box-shadow: 0px -1px 0px 0px rgba(0,0,0,0.57);
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px -1px 0px 0px rgba(0,0,0,0.57);
+    */
+    border-top: 1px solid var(--black-color-border);
+
+}
+
+.seccion-menciones .contenedor-tarjetas-menciones {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    gap: 70px;
+}
+.tarjeta-menciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: flex-start;
+    background-color: var(--white-color-bg);
+    box-shadow: 0px 0px 29px 7px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 29px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 29px 7px rgba(0,0,0,0.75);
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+.tarjeta-menciones h2 {
+    margin: 25px 20px 10px 20px ;
+    padding: 0px;
+    margin-bottom: 0;
+}
+.tarjeta-menciones p{
+    margin: 25px 20px 10px 20px ;
+    padding: 0px;
+}
+
+
+
