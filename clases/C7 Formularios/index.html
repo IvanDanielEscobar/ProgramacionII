@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estilos.css">
+  </head> <!-- Cierra head -->
+  <body>
+    <form action="https://ejemplo.com/formulario" method="GET">
+	  <!-- Campo de texto para el nombre -->
+	  <label for="nombre">👤 Nombre:</label>
+	  <input type="text" id="nombre" name="nombre" placeholder="Escribí tu nombre" required>
+
+
+	  <!-- Campo para email -->
+	  <label for="email">📧 Email:</label>
+	  <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+
+
+	  <!-- Campo numérico -->
+	  <label for="edad">🎂 Edad:</label>
+	  <input type="number" id="edad" name="edad" min="0" max="120">
+
+
+	  <!-- Campo de texto largo -->
+	  <label for="mensaje">💬 Dejanos tu mensaje:</label>
+	  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos algo..."></textarea>
+
+
+	  <!-- Botón de envío -->
+	  <button type="submit">🚀 Enviar</button>
+	</form>
+
+    
+  </body> <!-- Cierra body -->
+</html> <!-- Cierra html -->

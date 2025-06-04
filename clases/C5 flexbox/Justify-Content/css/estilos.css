@@ -1,0 +1,34 @@
+/*
+flex-start (Se agrupan al inicio)
+flex-end  (Se agrupan al final)
+center  (Se agrupan al centro)
+space-between (Se agrupan dejando espacio igual entre elementos pero, el primero y el ultimo no tienen espacio desde el borde)
+space-around (Se agrupan dejando espacio igual entre elementos pero diferentes el primero y el ultimo en cuanto al borde)
+space-evenly (Se agrupan dejando espacio igual entre elementos)
+*/
+
+/* Establecer un contenedor con flexbox */
+.container {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.hija{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Establecer el estilo para las divs */
+div {
+  
+  background-color: #f2c94c;
+  border: solid 1px black;;
+}
+
+

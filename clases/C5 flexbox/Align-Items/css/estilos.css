@@ -1,0 +1,33 @@
+/*
+stretch (Por defecto, se estiran para rellenar verticalmente el contenedor)
+flex-start  (Se alinean al inicio)
+flex-end  (Se alinean al final)
+center (Se alinean al centro)
+*/
+
+/* Establecer un contenedor con flexbox */
+.container {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items:stretch;
+}
+
+.hija{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Establecer el estilo para las divs */
+div {
+  
+  background-color: #f2c94c;
+  border: solid 1px black;;
+}
+
+

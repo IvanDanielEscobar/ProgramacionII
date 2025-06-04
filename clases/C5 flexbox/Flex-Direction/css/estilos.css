@@ -1,0 +1,26 @@
+/*
+row (Se alinean como una fila de izquierda a derecha)
+row-reverse (Se alinean como una fila de derecha a izquierda)
+column (Se alinean como una columna de arriba a abajo)
+column-reverse (Se alinean como una columna de abajo a arriba)
+*/
+
+/* Establecer un contenedor con flexbox */
+.container {
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+}
+
+.hija{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Establecer el estilo para las divs */
+div {
+  
+  background-color: #f2c94c;
+  border: solid 1px black;;
+}

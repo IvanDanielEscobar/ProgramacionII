@@ -1,0 +1,71 @@
+/* RESET SIMPLE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  color: #333;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* FILAS */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* COLUMNAS */
+.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12 {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #e0f7fa;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* DIFERENTES TAMAÑOS */
+.col-1  { width: 8.3333%; }
+.col-2  { width: 16.6666%; }
+.col-3  { width: 25%; }
+.col-4  { width: 33.3333%; }
+.col-5  { width: 41.6666%; }
+.col-6  { width: 50%; }
+.col-7  { width: 58.3333%; }
+.col-8  { width: 66.6666%; }
+.col-9  { width: 75%; }
+.col-10 { width: 83.3333%; }
+.col-11 { width: 91.6666%; }
+.col-12 { width: 100%; }
+
+/* DIFERENCIADORES VISUALES */
+.caja-grande {
+  background-color: #ffe082;
+}
+
+.caja-chica {
+  background-color: #c5e1a5;
+}
+
+/* RESPONSIVE: CELULARES */
+@media (max-width: 1000px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12 {
+    width: 100%;
+  }
+}

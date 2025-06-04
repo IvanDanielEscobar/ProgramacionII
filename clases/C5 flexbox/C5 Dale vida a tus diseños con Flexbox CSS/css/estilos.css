@@ -1,0 +1,66 @@
+/*
+#  ·················
+#  ··_______________
+#  ·/·___/·___/·___/
+#  /·/__(__··|__··)·
+#  \___/____/____/··
+#  ·················
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+/* -------------Variables */
+:root{
+--green-color:#7ACC2D;
+--white-color:white;
+--black-color:#313337;
+/* Tipografía */
+--normal:12px;
+/* Espaciado */
+--space:20px;
+/* Box shadow */
+--box:0px 0 2px 1px #e6e5e9;
+}
+
+/* -------------Variables */
+html,body{
+  padding:0px;
+  margin:0px;
+  font-size: var(--normal);
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--green-color);
+  color: var(--white-color);
+}
+/* Establecer un contenedor con flexbox, atención con height: 100vh */
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  justify-content: flex-start;
+  align-items:stretch;
+}
+
+header {
+  display: flex;
+  background-color: #f2c94c;
+  padding: var(--space);
+}
+
+nav {
+  display: flex;
+  background-color: #e76f51;
+  padding: var(--space);
+}
+
+/* Establecer el estilo para el contenido principal, atención a flex: auto */
+main {
+  display: flex;
+  flex: auto;
+  padding: var(--space);
+}
+
+footer {
+  display: flex;
+  background-color: #2a9d8f;
+  padding: var(--space);
+}
