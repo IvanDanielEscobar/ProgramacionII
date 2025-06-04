@@ -20,11 +20,14 @@
 :root {
     --green-color-bg: rgb(108, 192, 29); 
     --white-color-bg: #ffff;
+    --dark-green-bg: rgb(82, 143, 25); ;
     
     --black-color-border: rgb(82, 82, 82);
 
     --black-color-text: black;
     --white-color-text: #ffff;
+
+
 
     --font-size-s: 0.8rem;
     --font-size-l: 1rem;
@@ -101,14 +104,23 @@ main .seccion-menu h1{
     background-position: center top;
     margin: 70px 0;
     padding: 50px 10% 250px;
-    display: flex; 
-    justify-content: center;
-    align-items: flex-start;
 }
+
+.seccion-producto .contenedor-tarjetas-productos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .seccion-producto .tarjeta-producto {
     background-color: var(--white-color-bg);
-    margin: 40px 70px;
-    padding: 0 25px;
+    margin: 40px 15px;
+    padding: 0 20px;
     border-radius: 1%;
     display: flex;
     flex-direction: column; 
@@ -144,6 +156,10 @@ main .seccion-menu h1{
     padding: 13px;
     margin: 20px 0;
     color: var(--white-color-text);
+}
+
+.tarjeta-producto a:hover {
+    background-color: var(--dark-green-bg); 
 }
 
 /*----- seccion feat-----*/
