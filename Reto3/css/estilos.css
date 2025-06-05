@@ -306,6 +306,11 @@ footer a {
     main .seccion-menu {
         font-size: var(--font-size-s);
     }
+
+    .seccion-producto .contenedor-tarjetas-productos {
+    display: flex;
+    flex-direction: column;
+    }
     .seccion-producto{
         flex-direction: column;
         align-items: center;
