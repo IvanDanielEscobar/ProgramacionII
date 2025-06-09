@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 100%;
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(233, 233, 233);
+}
+
+:root{
+    --bg-bluedark: rgb(10, 28, 116);
+}
+
+.navbar {
+    background-color: var(--bg-bluedark);
+    margin: 0;
+    padding: 1px 3px;
+}
+.navbar-toggler {
+    margin: 15px;
+    padding: 1px;
+}
+.navbar ul {
+    margin: 0;
+    padding: 5px;
+}
+
+.navbar-brand {
+    margin: 0px;
+    max-width: 50px;
+}
+
+header {
+    margin: 50px 20px;
+    padding: 20px;
+}
+header h1{
+    margin: 0;
+    padding: 30px;
+}
+header p {
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    padding: 50px;
+}
+
+main .card-body {
+    padding: 20px;
+}
+
+main .card-title {
+    text-align: center;
+    font-size: 15px;
+    padding: 0 10px;
+}
+main .card-text {
+    padding: 0px 10px;
+    text-align: start;
+    font-size: 10px;
+}
+
+main .btn {
+    margin: 0 10px;
+    padding: 4px 20px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.boton-accion {
+    margin: 60px 10px;
+    padding: 15px;
+}
+footer{ 
+    background-color: var(--bg-bluedark);
+    margin-top: 0;
+    font-size: 7px;
+}
+
+
+@media (max-width: 800px) {
+    #navbarNav {
+        margin-left: auto;
+        text-align: right;
+    }
+    .navbar-nav {
+        justify-content: flex-end; 
+    }
+}
